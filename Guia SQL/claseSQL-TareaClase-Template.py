@@ -16,8 +16,7 @@ def main():
     print("# =============================================================================")
     print("# Creamos/Importamos los datasets que vamos a utilizar en este programa")
     print("# =============================================================================")
-
-    carpeta = "/home/clinux01/Documentos/MunhoF-Labo-de-Datos-2c2023-main/Guia SQL/"
+    #carpeta = "C;\Users\JavierMunho\Documents\MunhoF-Labo-de-Datos-2c2023\Guia SQL\"
     
     # Ejercicios AR-PROJECT, SELECT, RENAME
     empleado       = get_empleado()
@@ -31,17 +30,17 @@ def main():
     se_inscribe_en=get_se_inscribe_en_ejemploMismosNombres()
     materia       =get_materia_ejemploMismosNombres()
     # Ejercicio JOIN múltiples tablas
-    vuelo      = pd.read_csv(carpeta+"vuelo.csv")    
-    aeropuerto = pd.read_csv(carpeta+"aeropuerto.csv")    
-    pasajero   = pd.read_csv(carpeta+"pasajero.csv")    
-    reserva    = pd.read_csv(carpeta+"reserva.csv")    
+    vuelo      = pd.read_csv("vuelo.csv")    
+    aeropuerto = pd.read_csv("aeropuerto.csv")    
+    pasajero   = pd.read_csv("pasajero.csv")    
+    reserva    = pd.read_csv("reserva.csv")    
     # Ejercicio JOIN tuplas espúreas
-    empleadoRol= pd.read_csv(carpeta+"empleadoRol.csv")    
-    rolProyecto= pd.read_csv(carpeta+"rolProyecto.csv")    
+    empleadoRol= pd.read_csv("empleadoRol.csv")    
+    rolProyecto= pd.read_csv("rolProyecto.csv")    
     # Ejercicios funciones de agregación, LIKE, Elección, Subqueries y variables de Python
-    examen     = pd.read_csv(carpeta+"examen.csv")
+    examen     = pd.read_csv("examen.csv")
     # Ejercicios de manejo de valores NULL
-    examen03 = pd.read_csv(carpeta+"examen03.csv")
+    examen03 = pd.read_csv("examen03.csv")
     
     
     print()
@@ -56,10 +55,10 @@ def main():
                    SELECT DISTINCT DNI, Salario
                    FROM empleado;
                   """
-    vuelo      = pd.read_csv(carpeta+"vuelo.csv")    
-    aeropuerto = pd.read_csv(carpeta+"aeropuerto.csv")    
-    pasajero   = pd.read_csv(carpeta+"pasajero.csv")    
-    reserva    = pd.read_csv(carpeta+"reserva.csv")    
+    vuelo      = pd.read_csv("vuelo.csv")    
+    aeropuerto = pd.read_csv("aeropuerto.csv")    
+    pasajero   = pd.read_csv("pasajero.csv")    
+    reserva    = pd.read_csv("reserva.csv")    
 
 
     dataframeResultado = sql^ consultaSQL
@@ -82,31 +81,7 @@ def main():
     # -----------
     consigna    = "b.- Listar Sexo de empleados "
     consultaSQL = """
-                   SELECT DISTINCT Sexo    carpeta = "/home/clinux01/Documentos/MunhoF-Labo-de-Datos-2c2023-main/Guia SQL/"
-    
-    # Ejercicios AR-PROJECT, SELECT, RENAME
-    empleado       = get_empleado()
-    # Ejercicios AR-UNION, INTERSECTION, MINUS
-    alumnosBD      = get_alumnosBD()
-    alumnosTLeng   = get_alumnosTLeng()
-    # Ejercicios AR-CROSSJOIN
-    persona        = get_persona_ejemploCrossJoin()
-    nacionalidades = get_nacionalidades()
-    # Ejercicios ¿Mismos Nombres?
-    se_inscribe_en=get_se_inscribe_en_ejemploMismosNombres()
-    materia       =get_materia_ejemploMismosNombres()
-    # Ejercicio JOIN múltiples tablas
-    vuelo      = pd.read_csv(carpeta+"vuelo.csv")    
-    aeropuerto = pd.read_csv(carpeta+"aeropuerto.csv")    
-    pasajero   = pd.read_csv(carpeta+"pasajero.csv")    
-    reserva    = pd.read_csv(carpeta+"reserva.csv")    
-    # Ejercicio JOIN tuplas espúreas
-    empleadoRol= pd.read_csv(carpeta+"empleadoRol.csv")    
-    rolProyecto= pd.read_csv(carpeta+"rolProyecto.csv")    
-    # Ejercicios funciones de agregación, LIKE, Elección, Subqueries y variables de Python
-    examen     = pd.read_csv(carpeta+"examen.csv")
-    # Ejercicios de manejo de valores NULL
-    examen03 = pd.read_csv(carpeta+"examen03.csv")
+                   SELECT DISTINCT Sexo
                    FROM empleado
                   """
     imprimirEjercicio(consigna, [empleado], consultaSQL, sql^consultaSQL)    
@@ -125,16 +100,7 @@ def main():
     print("# =============================================================================")
     
     consigna    = "a.- Listar de EMPLEADO sólo aquellos cuyo sexo es femenino"
-    consultaSQL = """    empleado       = get_empleado()
-    # Ejercicios AR-UNION, INTERSECTION, MINUS
-    alumnosBD      = get_alumnosBD()
-    alumnosTLeng   = get_alumnosTLeng()
-    # Ejercicios AR-CROSSJOIN
-    persona        = get_persona_ejemploCrossJoin()
-    nacionalidades = get_nacionalidades()
-    # Ejercicios ¿Mismos Nombres?
-    se_inscribe_en=get_se_inscribe_en_ejemploMismosNombres()
-    materia       =get_materia_ejemploMismosNombres()
+    consultaSQL = """
                    SELECT DISTINCT DNI, Nombre, Sexo, Salario
                    FROM empleado
                    WHERE Sexo = 'F'
@@ -512,7 +478,7 @@ def main():
                                                 ON NroVuelo = Numero
                                                 WHERE Origen = 'MAD'
                                                 """
-        pasajero_j_reserva_j_vuelo = sql^consulta_union_pasajero_j_reserva_j_vuelo
+    pasajero_j_reserva_j_vuelo = sql^consulta_union_pasajero_j_reserva_j_vuelo
 
     
     consultaSQL = """
@@ -872,7 +838,7 @@ def main():
     consultaSQL = """
                     SELECT *
                     FROM examen03 as e1
-                    WHERE Nota <= $umbralNota
+                    WHERE Nota <= 9
                     ORDER BY Instancia ASC, Nota DESC
                   """
 
@@ -921,14 +887,6 @@ def main():
                   FROM tabla_mayores
                   """
 
-    consultaSQL = """
-                    SELECT *
-                    FROM datosEstudiantes as d
-                    INNER JOIN datosParcial01 as e
-                    ON d.Nombre = e.Nombre
-                  """
-
-    datosHastaParcial01 = sql^ consultaSQL
     imprimirEjercicio(consigna, [examen03], consultaSQL, sql^consultaSQL)
 
 
@@ -1013,7 +971,7 @@ def main():
                     ON d.Nombre = e.Nombre
                   """
     
-    datosHastaParcial01 = sql^ consultaSQL
+    datosHastaParcial02 = sql^ consultaSQL
     
         #... Paso aux: tomo la tabla de la instancia Recuperatorio-01
     consultaSQL = """
@@ -1048,7 +1006,7 @@ def main():
     # ... Paso 3: Agregamos las notas del Recuperatorio-02
     consultaSQL = """
                     SELECT d.Nombre, d.Sexo, d.Edad, d.Parcial_01, d.Parcial_02,
-                        d.Recuperatorio_01, e.Nota as Recuperatorio_02
+                        d.Recupeatorio_01, e.Nota as Recuperatorio_02
                     FROM datosHastaRecupeatorio01 as d
                     LEFT OUTER JOIN datosRecupeatorio2 as e
                     ON d.Nombre = e.Nombre
