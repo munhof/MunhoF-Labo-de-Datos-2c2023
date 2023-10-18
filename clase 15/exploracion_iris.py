@@ -14,7 +14,7 @@ import matplotlib.pyplot as plt
 
 import seaborn as sns
 
-df = pd.read_csv('~/Documents/Docencia/Labo_Datos/iris.csv')
+df = pd.read_csv('iris.csv')
 
 df.columns
 
@@ -104,6 +104,77 @@ plt.axvline(setosa['petal.length'].mean()-setosa['petal.length'].std(), color='b
 plt.show()
 
 plt.close()
+#--------------------------------------------------------------------
+setosa['petal.width'].plot(kind = 'kde')
+
+plt.axvline(setosa['petal.width'].mean(), color = 'orange')#la media
+#naranja
+
+plt.axvline(setosa['petal.width'].median() , color = 'red')#mediana
+#roja
+
+plt.axvline(setosa['petal.width'].quantile(0.5) , color = 'blue' , linestyle = '--')
+#cuantil 50, en azul
+plt.axvline(setosa['petal.width'].quantile(0.25) , color = 'green')
+#cuartil 25 en verde 
+plt.axvline(setosa['petal.width'].quantile(0.75) , color = 'violet')
+#cuartil 75 en violeta
+plt.axvline(setosa['petal.width'].mean()+setosa['petal.width'].std(), color='black' , linestyle='-.')
+
+plt.axvline(setosa['petal.width'].mean()-setosa['petal.width'].std(), color='black' , linestyle='-.')
+
+plt.show()
+
+plt.close()
+#-------------------------------------------------------------------
+
+setosa['sepal.length'].plot(kind = 'kde')
+
+plt.axvline(setosa['sepal.length'].mean(), color = 'orange')#la media
+#naranja
+
+plt.axvline(setosa['sepal.length'].median() , color = 'red')#mediana
+#roja
+
+plt.axvline(setosa['sepal.length'].quantile(0.5) , color = 'blue' , linestyle = '--')
+#cuantil 50, en azul
+plt.axvline(setosa['sepal.length'].quantile(0.25) , color = 'green')
+#cuartil 25 en verde 
+plt.axvline(setosa['sepal.length'].quantile(0.75) , color = 'violet')
+#cuartil 75 en violeta
+plt.axvline(setosa['sepal.length'].mean()+setosa['sepal.length'].std(), color='black' , linestyle='-.')
+
+plt.axvline(setosa['sepal.length'].mean()-setosa['sepal.length'].std(), color='black' , linestyle='-.')
+
+plt.show()
+
+plt.close()
+#--------------------------------------------------------------------
+setosa['sepal.width'].plot(kind = 'kde')
+
+plt.axvline(setosa['sepal.width'].mean(), color = 'orange')#la media
+#naranja
+
+plt.axvline(setosa['sepal.width'].median() , color = 'red')#mediana
+#roja
+
+plt.axvline(setosa['sepal.width'].quantile(0.5) , color = 'blue' , linestyle = '--')
+#cuantil 50, en azul
+plt.axvline(setosa['sepal.width'].quantile(0.25) , color = 'green')
+#cuartil 25 en verde 
+plt.axvline(setosa['sepal.width'].quantile(0.75) , color = 'violet')
+#cuartil 75 en violeta
+plt.axvline(setosa['sepal.width'].mean()+setosa['sepal.width'].std(), color='black' , linestyle='-.')
+
+plt.axvline(setosa['sepal.width'].mean()-setosa['sepal.width'].std(), color='black' , linestyle='-.')
+
+plt.show()
+
+plt.close()
+#---------------------------------------------------------------------
+setosa.hist( )
+
+#--------------------------------------------------------------------
 
 #veamos que pinta tienen esas variables...
 
